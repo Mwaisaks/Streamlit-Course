@@ -1,5 +1,9 @@
 import streamlit as st
 import pandas as pd
+from PIL import Image
+import pandas as pd
+import numpy as np
+#import matplotlib.pyplot as plt
 
 st.title('This is a title')
 st.header('This is a header')
@@ -101,9 +105,41 @@ st.write("Dictionary displayed with st.write():", person)
 
 # ------ Using editable tables with data editor ------
 editable_df = st.data_editor(df, num_rows="dynamic")
-st.write("Uodated DataFrame:")
+st.write("Updated DataFrame:")
 st.write(editable_df)
 
+with st.container():
+    st.write("This is inside a container")
+
+col1, col2 = st.columns(2)
+with col1:
+    st.write("Column 1 content")
+with col2:
+    st.write("Column 2 content")
+
+with st.expander("More info"):
+    st.write("Hidden content revealed when expanded")
+
+# ------ Sidebar integration for navigation and filters ------
+option = st.sidebar.selectbox("Select page:", ["Home", "Settings", "About"])
+st.sidebar.write("Sidebar content here")
+
+st.write(f"Current page: {option}")
+
+# ------ Dividers and captions for clean layout ------
+st.write("Above the divider")
+st.divider()
+
+st.caption("This is a small caption text below")
+
+# ------ Displaying images and charts ------
+# Display Image
+img = Image.new('RGB', (200, 100), color='skyblue')
+st.image(img, caption="Sample Image", use_column_width = True)
+
+#Simple line chart
+data = pd.DataFrame(np.random.randn(20, 3), columns=['a', 'b', 'c'])
+st.line_chart(data)
 
 
 """
