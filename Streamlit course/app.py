@@ -141,58 +141,6 @@ st.image(img, caption="Sample Image", use_column_width = True)
 data = pd.DataFrame(np.random.randn(20, 3), columns=['a', 'b', 'c'])
 st.line_chart(data)
 
-# ------ Playing audio and video files ------
-audio_file = open("sample_audio.mp3", "rb") if False else None  # Replace False with True to test locally
-video_file = open("sample_video.mp4", "rb") if False else None  # Replace False with True to test locally
-
-if audio_file:
-    st.audio(audio_file.read(), format='audio/mp3')
-
-if video_file:
-    st.video(video_file.read())
-
-# ------ Embedding YouTube or external video ------
-st.video("https://www.youtube.com/watch?v=9bZkp7q19f0")  # Example YouTube link
-
-# ------ Using markdown for headings, lists, links, and tables ------
-import streamlit as st
-
-st.markdown("# Heading 1")
-st.markdown("## Heading 2")
-st.markdown("### Heading 3")
-
-st.markdown("""
-- Bullet list item 1
-- Bullet list item 2
-  - Nested item
-1. Numbered list item 1
-2. Numbered list item 2
-
-[Streamlit website](https://streamlit.io)
-
-| Column 1 | Column 2 | Column 3 |
-| -------- | -------- | -------- |
-| Row 1    | Data     | More     |
-| Row 2    | Data     | More     |
-""")
-
-# Save and refresh.
-# ------ streamlit run
-
-
-# ------ Embedding raw HTML (with caution) ------
-# HTML rendering can be risky - use carefully.
-html_code = """
-<div style='background-color: lightyellow; padding: 10px;'>
-  <h3>Custom HTML block</h3>
-  <p style='color: green;'>This is green text inside a div.</p>
-</div>
-"""
-st.markdown(html_code, unsafe_allow_html=True)
-
-# Save and refresh.
-# ------ streamlit run
-
 
 """
 st.header('Hello world!')
